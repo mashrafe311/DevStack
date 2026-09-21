@@ -73,7 +73,7 @@ function Hero() {
             />
             <div className="relative flex items-center justify-center">
               <img
-                src="/banner-stack.png"
+                src="/images/banner-stack.png"
                 alt="Developer technology stack illustration"
                 className="h-auto w-full max-w-[526px] object-contain"
               />
