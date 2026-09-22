@@ -4,6 +4,9 @@ import Hero from "./components/Hero";
 import TechnologySection from "./components/TechnologySection";
 import StackSidebar from "./components/StackSidebar";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   const [selectedStack, setSelectedStack] = useState([]);
 
@@ -14,21 +17,37 @@ function App() {
       );
 
       if (alreadyAdded) {
+        toast.info(`${technology.name} is already in your stack.`);
         return previousStack;
       }
+
+      toast.success(`${technology.name} added to your stack.`);
 
       return [...previousStack, technology];
     });
   };
 
   const handleRemoveFromStack = (technologyId) => {
-    setSelectedStack((previousStack) =>
-      previousStack.filter((item) => item.id !== technologyId)
-    );
+    setSelectedStack((previousStack) => {
+      const technology = previousStack.find(
+        (item) => item.id === technologyId
+      );
+
+      if (technology) {
+        toast.info(`${technology.name} removed from your stack.`);
+      }
+
+      return previousStack.filter((item) => item.id !== technologyId);
+    });
   };
 
   const handleRemoveAll = () => {
+    if (selectedStack.length === 0) {
+      return;
+    }
+
     setSelectedStack([]);
+    toast.info("All technologies removed from your stack.");
   };
 
   return (
@@ -55,6 +74,16 @@ function App() {
           </div>
         </div>
       </main>
+
+      <ToastContainer
+        position="bottom-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }
