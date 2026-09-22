@@ -58,7 +58,7 @@ function App() {
         <Hero />
         <div className="bg-slate-50">
           <div className="page-container">
-            <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
+            <div className="grid items-start gap-6 sm:gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
               <TechnologySection
                 selectedStack={selectedStack}
                 onAddToStack={handleAddToStack}
@@ -73,7 +73,7 @@ function App() {
           </div>
         </div>
       </main>
-      <Footer />    
+      <Footer />
       <ToastContainer
         position="bottom-right"
         autoClose={4000}

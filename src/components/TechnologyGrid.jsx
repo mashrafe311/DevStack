@@ -9,6 +9,7 @@ function TechnologyGrid({
   const [technologies, setTechnologies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [addingId, setAddingId] = useState(null);
 
   useEffect(() => {
     const loadTechnologies = async () => {
@@ -33,6 +34,16 @@ function TechnologyGrid({
 
     loadTechnologies();
   }, []);
+
+  const handleAdd = async (technology) => {
+    setAddingId(technology.id);
+
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
+    onAddToStack(technology);
+
+    setAddingId(null);
+  };
 
   const filteredTechnologies =
     activeCategory === "All"
@@ -68,6 +79,7 @@ function TechnologyGrid({
         <p className="font-semibold text-slate-900">
           No technologies found.
         </p>
+
         <p className="mt-2 text-sm text-slate-500">
           Try selecting another category.
         </p>
@@ -86,8 +98,9 @@ function TechnologyGrid({
           <TechnologyCard
             key={technology.id}
             technology={technology}
-            onAddToStack={onAddToStack}
+            onAddToStack={handleAdd}
             isSelected={isSelected}
+            isAdding={addingId === technology.id}
           />
         );
       })}

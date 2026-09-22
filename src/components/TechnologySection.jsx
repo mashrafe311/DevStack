@@ -19,8 +19,8 @@ function TechnologySection({
   ];
 
   return (
-    <section id="technologies" className="bg-slate-50 section-padding">
-      <div className="page-container">
+    <section id="technologies" className="section-padding">
+      <div>
         <div className="mx-auto max-w-2xl text-center">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] gradient-text">
             Explore Technologies
@@ -37,7 +37,7 @@ function TechnologySection({
           </p>
         </div>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-2">
+        <div className="mt-8 flex gap-2 overflow-x-auto pb-2 sm:mt-10 sm:flex-wrap sm:justify-center sm:overflow-visible sm:pb-0">
           {categories.map((category) => {
             const isActive = activeCategory === category;
 
@@ -46,7 +46,7 @@ function TechnologySection({
                 key={category}
                 type="button"
                 onClick={() => setActiveCategory(category)}
-                className={`rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200 ${
+                className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200 ${
                   isActive
                     ? "gradient-bg text-white shadow-sm"
                     : "border border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-950"
@@ -58,7 +58,7 @@ function TechnologySection({
           })}
         </div>
 
-        <div className="mt-12">
+        <div className="mt-8 sm:mt-12">
           <TechnologyGrid
             activeCategory={activeCategory}
             selectedStack={selectedStack}
