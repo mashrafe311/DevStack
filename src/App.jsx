@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TechnologySection from "./components/TechnologySection";
 import StackSidebar from "./components/StackSidebar";
+import Footer from "./components/Footer";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -53,10 +54,8 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-
       <main>
         <Hero />
-
         <div className="bg-slate-50">
           <div className="page-container">
             <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
@@ -74,7 +73,7 @@ function App() {
           </div>
         </div>
       </main>
-
+      <Footer />    
       <ToastContainer
         position="bottom-right"
         autoClose={4000}
