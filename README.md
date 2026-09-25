@@ -1,6 +1,6 @@
 
 # DevStack
-
+Live link: [View DevStack](https://dev-stack-2.netlify.app/)
 ## 📖 Overview
 DevStack is a comprehensive educational platform designed to help aspiring developers master modern web technologies. It features an intuitive interface where users can browse courses, track their learning progress, and access curated developer resources. The application focuses on delivering a seamless, distraction-free learning experience with dynamic content rendering.
 ## 🖼️ Screenshot
